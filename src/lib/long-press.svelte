@@ -3,14 +3,14 @@
 
 	const tracker = new Operations({
 		start() {
-			isPress = !disabled;
+			press = !disabled;
 			return true;
 		},
 		end() {
-			if (isPress && !active) {
+			if (press && !active) {
 				onClick();
 			}
-			isPress = false;
+			press = false;
 		}
 	});
 
@@ -23,21 +23,21 @@
 	export let onClick = () => {};
 	export let onPress = () => {};
 
-	let isPress = false;
+	let press = false;
 
 	function animeEnd() {
-		if (isPress) {
+		if (press) {
 			active = true;
 			onPress();
 		}
-		isPress = false;
+		press = false;
 	}
 </script>
 
 <button
 	class:disabled
 	class:active
-	class:press={isPress}
+	class:press
 	{disabled}
 	use:tracker.listener
 	style="--speed: {speed}; --duration: {duration};"

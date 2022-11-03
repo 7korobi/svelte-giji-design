@@ -1,5 +1,5 @@
 <script lang="ts">
-	import GridItem from './grid-item.svelte';
+	import GridTd from './grid-td.svelte';
 	import type { TYPE } from '$lib';
 	import { Erase } from '$lib/icon';
 	import { Btn } from '$lib';
@@ -9,10 +9,7 @@
 	export let y: { id: string; count: number }[] = [];
 	export let data: { [key: string]: { count: number } } = {};
 	export let find = (xid: string, yid: string) => `${xid}${yid}`;
-	let focus_at = { x: '', y: '' };
-	function focusOn(x, y) {
-		focus_at = { x, y };
-	}
+	let focus_at = { x: undefined, y: undefined };
 
 	function xall(yid: string) {
 		const ids = [];
@@ -35,31 +32,31 @@
 
 {JSON.stringify(focus_at)}
 
-<table on:mouseleave={focusOn(null, null)}>
+<table on:mouseleave={()=> focus_at = {}}>
 	{#if x && y}
 		<tbody>
 			<tr>
-				<GridItem bind:focus_at bind:value type="set" as={[]}>
+				<GridTd bind:focus_at bind:value type="set" as={[]}>
 					<Erase />
-				</GridItem>
+				</GridTd>
 				{#each x as xo, xi (xo.id)}
-					<GridItem bind:focus_at bind:value type="toggle" as={yall(xo.id)} x={xo.id}>
+					<GridTd bind:focus_at bind:value type="toggle" as={yall(xo.id)} x={xo.id}>
 						{#if 0 < xo.count}<sub>{xo.count}</sub><br />{/if}
 						{xo.id}
-					</GridItem>
+					</GridTd>
 				{/each}
 			</tr>
 			{#each y as yo, yi (yo.id)}
 				<tr>
-					<GridItem bind:focus_at bind:value type="toggle" as={xall(yo.id)} y={yo.id}>
+					<GridTd bind:focus_at bind:value type="toggle" as={xall(yo.id)} y={yo.id}>
 						{#if 0 < yo.count}<sub>{yo.count}</sub><br />{/if}
 						{yo.id}
-					</GridItem>
+					</GridTd>
 					{#each x as xo, xi (xo.id)}
 						{@const idx = find(xo.id, yo.id)}
 						{@const item = data[idx]}
 						{@const enable = item && 0 < item.count}
-						<GridItem
+						<GridTd
 							bind:focus_at
 							bind:value
 							type="toggle"
@@ -69,10 +66,16 @@
 							disabled={!enable}
 						>
 							{#if enable}{item.count}{/if}
-						</GridItem>
+						</GridTd>
 					{/each}
 				</tr>
 			{/each}
 		</tbody>
 	{/if}
 </table>
+
+<style>
+	table {
+		user-select: none;
+	}
+</style>

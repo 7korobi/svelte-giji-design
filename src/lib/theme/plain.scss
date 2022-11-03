@@ -1,23 +1,26 @@
 body {
-	--pen: #444444;
-	--bold: #000000;
-	--h1: #555555;
-	--h2: #444444;
-	--h3: #333333;
-	--h4: #222222;
-	--h5: #111111;
-	--h6: #000000;
-	--accent: black;
+	--press: white;
+	--active: wheat;
 	--focus: #bbffbb;
-	--line: #0000aa;
-	--edge: #0000aa;
-	--emboss: #660000;
-	--hide: navy;
-
-	--bgHi: white;
+	--near: #99cc99;
 	--bg: silver;
-	--btnOn: wheat;
-	--btnOff: slategray;
+	--disabled: slategray;
+
+	--h1: #888888;
+	--h2: #666666;
+	--h3: #444444;
+	--h4: #333333;
+	--h5: #222222;
+	--h6: #111111;
+
+	--emboss: #555555;
+	--pen: #444444;
+	--bold: black;
+	--accent: black;
+
+	--line: #0000bb;
+	--edge: #000099;
+	--hide: #000066;
 
 	--shade: navy;
 	--shadow: navy;
@@ -26,14 +29,22 @@ body {
 	background-color: var(--bg);
 }
 
-.near {
-	background-color: var(--btnOff);
+.disabled {
+	background-color: var(--disabled)
 }
 
-.grid .focus {
-	background-color: var(--shade);
+.near {
+	background-color: var(--near);
+}
+
+.focus {
+	background-color: var(--focus);
 }
 
 .active {
-	background-color: var(--btnOn);
+	background-color: var(--active);
+}
+
+.press {
+	background-color: var(--press)
 }

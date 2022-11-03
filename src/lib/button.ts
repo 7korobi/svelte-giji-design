@@ -13,7 +13,7 @@ export function className<T extends ANY>(type: TYPE, as: any, value: any, isPres
 
 export function chkActive<T extends ANY>(type: TYPE, as: T[], value: T[]): boolean;
 export function chkActive<T extends ANY>(type: TYPE, as: T, value: T): boolean;
-export function chkActive<T extends ANY>(type: TYPE, as: T | T[], value: T | T[]): boolean {
+export function chkActive(type: TYPE, as: any, value: any): boolean {
 	if ('as' === type) {
 		return value === as;
 	}

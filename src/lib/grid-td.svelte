@@ -1,5 +1,19 @@
 <script lang="ts">
 	import { chkActive, tap } from '$lib';
+	import { Operations } from 'svelte-pointer-tracker';
+
+	const tracker = new Operations({
+		start() {
+			press = !disabled;
+			return true;
+		},
+		end() {
+			if (press) {
+				doClick();
+			}
+			press = false;
+		}
+	});
 
 	export let focus_at;
 	export let x;
@@ -20,21 +34,19 @@
 	}
 
 	function focusClass(xid: string, yid: string, { x, y }: { x: string; y: string }) {
-		if (disabled) return ['disabled'];
 		const css = [press ? 'press' : as.length ? (chkActive(type, as, value) ? 'active' : '') : ''];
 		if (xid === x || yid === y) css.push('near');
 		if (xid === x && yid === y) css.push('focus');
+		if (disabled) css.push('disabled');
 		return css.join(' ');
 	}
 </script>
 
-<td
-	class={focusClass(x, y, focus_at, type, as, value)}
-	on:pointerdown={() => (press = true)}
-	on:pointerup={() => (press = false)}
-	on:mouseleave={() => (press = false)}
+<svelte:element
+  this={ x && y ? "td" : "th"}
+	class={focusClass(x, y, focus_at, [press, type, as, value])}
+	use:tracker.listener
 	on:mouseenter={focusOn}
-	on:click={doClick}
 >
 	<slot />
-</td>
+</svelte:element>
