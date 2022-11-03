@@ -10,7 +10,7 @@
 	let grid_ids = [];
 </script>
 
-<h1>Welcome to your library project<Badge value=2 prefix="x" /></h1>
+<h1>Welcome to your library project<Badge value="2" prefix="x" /></h1>
 <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
@@ -68,6 +68,75 @@ hello {hello}
 <p>{JSON.stringify(grid_ids)}</p>
 
 <hr />
-{#each icon_names as name}
-	/ {name} <svelte:component this={Icon[name]} />
-{/each}
+<p class="light">
+	{#each icon_names as name}
+		/ {name} <svelte:component this={Icon[name]} />
+	{/each}
+</p>
+
+<hr />
+<p class="dark">
+	{#each icon_names as name}
+		/ {name} <svelte:component this={Icon[name]} />
+	{/each}
+</p>
+
+<style>
+	.light {
+		--press: white;
+		--active: wheat;
+		--focus: #bbffbb;
+		--near: #99cc99;
+		--bg: #cccccc;
+		--disabled: #88aacc;
+		--shadow: #446688;
+
+		--h1: #888888;
+		--h2: #777777;
+		--h3: #666666;
+		--h4: #444444;
+		--h5: #222222;
+		--h6: #000000;
+
+		--line: #996622;
+		--edge: #664433;
+		--hide: #332244;
+
+		--emboss: #666666;
+		--pen: #444444;
+		--accent: #0000aa;
+		--bold: black;
+
+		color: var(--pen);
+		background-color: var(--bg);
+	}
+
+	.dark {
+		--press: black;
+		--active: #222222;
+		--near: #004400;
+		--focus: #008800;
+		--bg: #444444;
+		--disabled: #884422;
+		--shadow: #88aacc;
+
+		--h1: #777777;
+		--h2: #999999;
+		--h3: #bbbbbb;
+		--h4: #dddddd;
+		--h5: #eeeeee;
+		--h6: #ffffff;
+
+		--line: #ff8877;
+		--edge: #ffaa99;
+		--hide: #ffccbb;
+
+		--emboss: #999999;
+		--pen: #aaaaaa;
+		--accent: #aaaaff;
+		--bold: white;
+
+		color: var(--pen);
+		background-color: var(--bg);
+	}
+</style>

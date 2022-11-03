@@ -72,6 +72,11 @@ import Outdent from './text/outdent.svelte';
 import RemoveFormat from './text/remove-format.svelte';
 
 import Biohazard from './mood/biohazard.svelte';
+import Zombie from './mood/zombie.svelte';
+import Ghost from './mood/ghost.svelte';
+import Swords from './mood/swords.svelte';
+import Sexy from './mood/sexy.svelte';
+import Love from './mood/love.svelte';
 import Tropical from './mood/tropical.svelte';
 import Catwalk from './mood/catwalk.svelte';
 import Music from './mood/music.svelte';
@@ -156,6 +161,11 @@ export {
 	Outdent,
 	RemoveFormat,
 	Biohazard,
+	Zombie,
+	Ghost,
+	Swords,
+	Sexy,
+	Love,
 	Tropical,
 	Catwalk,
 	Music,

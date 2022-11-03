@@ -6,8 +6,11 @@
 </script>
 
 {#if min < value}
-	<svelte:element this={tag} class="badge {$$props.class}"><span>{prefix}</span>{value}</svelte:element>
+	<svelte:element this={tag} class="badge {$$props.class}"
+		><span>{prefix}</span>{value}</svelte:element
+	>
 {/if}
+
 <style>
 	.badge {
 		color: var(--bg);
@@ -15,6 +18,6 @@
 		box-shadow: 0 0 2px 2px var(--emboss);
 	}
 	span {
-		color: var(--line)
+		color: var(--line);
 	}
 </style>
