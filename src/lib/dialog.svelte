@@ -32,7 +32,7 @@
 		margin: auto;
 		padding: 1em;
 		border: none;
-		box-shadow: 0 0 20px 0px gray;
+		box-shadow: 0 0 20px 0px var(--shadow);
 	}
 	.dialog {
 		position: fixed;

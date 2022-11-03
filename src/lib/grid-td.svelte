@@ -43,7 +43,7 @@
 </script>
 
 <svelte:element
-  this={ x && y ? "td" : "th"}
+	this={x && y ? 'td' : 'th'}
 	class={focusClass(x, y, focus_at, [press, type, as, value])}
 	use:tracker.listener
 	on:mouseenter={focusOn}

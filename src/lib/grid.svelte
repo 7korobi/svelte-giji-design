@@ -32,7 +32,7 @@
 
 {JSON.stringify(focus_at)}
 
-<table on:mouseleave={()=> focus_at = {}}>
+<table on:mouseleave={() => (focus_at = {})}>
 	{#if x && y}
 		<tbody>
 			<tr>

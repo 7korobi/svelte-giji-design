@@ -109,7 +109,7 @@ svg.logo {
 
 @keyframes blink {
 	from {
-		fill: var(--hide);
+		fill: var(--disabled);
 	}
 	to {
 		fill: var(--pen);
@@ -118,10 +118,10 @@ svg.logo {
 
 @keyframes twincle {
 	from {
-		fill: var(--bold);
+		fill: var(--line);
 	}
 	to {
-		fill: var(--focus);
+		fill: var(--hide);
 	}
 }
 

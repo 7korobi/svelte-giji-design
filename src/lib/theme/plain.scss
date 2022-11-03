@@ -3,34 +3,50 @@ body {
 	--active: wheat;
 	--focus: #bbffbb;
 	--near: #99cc99;
-	--bg: silver;
-	--disabled: slategray;
+	--bg: #cccccc;
+	--disabled: #88aacc;
+	--shadow: #446688;
 
 	--h1: #888888;
-	--h2: #666666;
-	--h3: #444444;
-	--h4: #333333;
+	--h2: #777777;
+	--h3: #666666;
+	--h4: #444444;
 	--h5: #222222;
-	--h6: #111111;
+	--h6: #000000;
 
-	--emboss: #555555;
+	--line: #996622;
+	--edge: #664433;
+	--hide: #332244;
+
+	--emboss: #666666;
 	--pen: #444444;
+	--accent: #0000aa;
 	--bold: black;
-	--accent: black;
-
-	--line: #0000bb;
-	--edge: #000099;
-	--hide: #000066;
-
-	--shade: navy;
-	--shadow: navy;
 
 	color: var(--pen);
 	background-color: var(--bg);
 }
 
+button,
+input {
+	background-color: var(--bg);
+	border-color: var(--edge);
+	color: var(--pen);
+}
+
+h1 { color: var(--h1) }
+h2 { color: var(--h2) }
+h3 { color: var(--h3) }
+h4 { color: var(--h4) }
+h5 { color: var(--h5) }
+h6 { color: var(--h6) }
+
+th {
+	color: var(--emboss)
+}
+
 .disabled {
-	background-color: var(--disabled)
+	background-color: var(--disabled);
 }
 
 .near {
@@ -46,5 +62,5 @@ body {
 }
 
 .press {
-	background-color: var(--press)
+	background-color: var(--press);
 }

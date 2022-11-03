@@ -1,3 +1,4 @@
+import Badge from './badge.svelte';
 import Btn from './btn.svelte';
 import Diagram from './diagram.svelte';
 import Dialog from './dialog.svelte';
@@ -10,5 +11,5 @@ export type { Line, Icon, Cluster } from './store.js';
 
 export * from './button.js';
 
-export { Btn, Diagram, Dialog, Grid, LongPress, SearchText };
+export { Badge, Btn, Diagram, Dialog, Grid, LongPress, SearchText };
 export default store;

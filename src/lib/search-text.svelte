@@ -33,10 +33,10 @@
 <label for={id}>
 	<svg id="icon-search" preserveAspectRatio="xMidYMid slice" viewBox="0 0 24 24">
 		<g fill="none">
-			<circle cx="15" cy="9" r="6" fill="var(--btnOn, silver)" />
+			<circle cx="15" cy="9" r="6" fill="var(--press)" />
 			<path
 				d="M3 21L10.5 13.5L10.757 13.243a6 6 0 1 1 8.485-8.486a6 6 0 0 1-8.485 8.486z"
-				stroke="var(--pen, black)"
+				stroke="var(--pen)"
 				stroke-width="2"
 				stroke-linecap="round"
 				class="line"
@@ -64,7 +64,7 @@
 
 <style>
 	svg {
-		z-index: 99999;
+		z-index: 2;
 		margin-right: -1.2em;
 		width: 1em;
 		height: 1em;
