@@ -21,4 +21,19 @@ body {
 
 	--shade: navy;
 	--shadow: navy;
+
+	color: var(--pen);
+	background-color: var(--bg);
+}
+
+.near {
+	background-color: var(--btnOff);
+}
+
+.grid .focus {
+	background-color: var(--shade);
+}
+
+.active {
+	background-color: var(--btnOn);
 }

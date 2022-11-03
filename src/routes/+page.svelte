@@ -1,12 +1,14 @@
 <script lang="ts">
+	import { Grid } from '$lib';
 	import * as Icon from '$lib/icon';
 	import { LongPress, SearchText } from '$lib';
 
-	const icon_names = Object.keys(Icon);
+	const icon_names = Object.keys(Icon) as (keyof typeof Icon)[];
 
 	let hello = '';
 	let search = '';
-	let search_reg;
+	let search_reg: RegExp;
+	let grid_ids = [];
 </script>
 
 <h1>Welcome to your library project</h1>
@@ -37,6 +39,23 @@
 hello {hello}
 
 <hr />
+
+<Grid
+	bind:value={grid_ids}
+	x={[
+		{ id: 'a', count: 1 },
+		{ id: 'b', count: 2 }
+	]}
+	y={[
+		{ id: 'A', count: 1 },
+		{ id: 'B', count: 2 }
+	]}
+	data={{ aA: { count: 1 }, bB: { count: 2 } }}
+/>
+
+<p>{JSON.stringify(grid_ids)}</p>
+
+<hr />
 {#each icon_names as name}
-/ {name} <svelte:component this={Icon[name]} />　
+	/ {name} <svelte:component this={Icon[name]} />
 {/each}

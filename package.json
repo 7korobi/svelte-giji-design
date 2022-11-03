@@ -42,7 +42,6 @@
 	"dependencies": {
 		"sass": "^1.55.0",
 		"svelte": "^3.52.0",
-		"svelte-browser": "^0.4.4",
 		"svelte-petit-utils": "^0.3.2",
 		"svelte-pointer-tracker": "^0.2.5",
 		"tslib": "^2.4.1",

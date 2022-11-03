@@ -38,6 +38,7 @@
 	class:disabled
 	class:active
 	class:press={isPress}
+	{disabled}
 	use:tracker.listener
 	style="--speed: {speed}; --duration: {duration};"
 >
