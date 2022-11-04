@@ -107,6 +107,7 @@ hello {hello}
 		--accent: #0000aa;
 		--bold: black;
 
+		font-size: 3em;
 		color: var(--pen);
 		background-color: var(--bg);
 	}
@@ -136,6 +137,7 @@ hello {hello}
 		--accent: #aaaaff;
 		--bold: white;
 
+		font-size: 3em;
 		color: var(--pen);
 		background-color: var(--bg);
 	}

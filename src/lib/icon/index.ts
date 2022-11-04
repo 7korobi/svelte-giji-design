@@ -71,6 +71,7 @@ import Indent from './text/indent.svelte';
 import Outdent from './text/outdent.svelte';
 import RemoveFormat from './text/remove-format.svelte';
 
+import HandFan from './mood/hand-fan.svelte';
 import Biohazard from './mood/biohazard.svelte';
 import Zombie from './mood/zombie.svelte';
 import Ghost from './mood/ghost.svelte';
@@ -160,6 +161,7 @@ export {
 	Indent,
 	Outdent,
 	RemoveFormat,
+	HandFan,
 	Biohazard,
 	Zombie,
 	Ghost,

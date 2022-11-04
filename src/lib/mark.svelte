@@ -20,7 +20,7 @@
 			drunk: { enable: true, icon: Icon.Tropical },
 			fear: { enable: true, icon: Icon.Ghost },
 			gamble: { enable: true, icon: Icon.Casino },
-			love: { enable: true, icon: 'CERO_love.png' },
+			love: { enable: true, icon: Icon.Love },
 			sexy: { enable: true, icon: Icon.Sexy },
 			violence: { enable: true, icon: Icon.Swords },
 			biohazard: { enable: true, icon: Icon.Biohazard },
@@ -28,7 +28,7 @@
 			music: { enable: true, icon: Icon.Music },
 			test: { enable: true, icon: Icon.Github },
 			quiz: { enable: true, icon: Icon.TimelineHelp },
-			appare: { enable: false, icon: 'cd_appare.png' }
+			appare: { enable: false, icon: Icon.HandFan }
 		};
 	})(true);
 
