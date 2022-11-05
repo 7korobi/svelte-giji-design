@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Icon from '$lib/icon';
+	import { IconIn, Icon } from '$lib';
 	export let ids = [] as MARK_ID[];
 	let marks = ids.map(Marks.find);
 	let icons = ids.map(assignIcon);
 
-	export default (function (a) {
+	export const MARKS = (function (a) {
 		return {
 			age_A: { label: '全年齢対象', icon: Icon.CeroA },
 			age_B: { label: '12才以上', icon: Icon.CeroB },
@@ -31,26 +31,6 @@
 			appare: { enable: false, icon: Icon.HandFan }
 		};
 	})(true);
-
-	function assignIcon(id: MARK_ID) {
-		switch (id) {
-			case 'biohazard':
-				return Biohazard;
-			case 'drug':
-				return Drug;
-			case 'crime':
-				return Gun;
-			case 'drunk':
-				return Tropical;
-			case 'catwalk':
-				return Catwalk;
-			case 'word':
-				return TimelineText;
-			case 'alert':
-				return TimelineAlert;
-		}
-		return undefined;
-	}
 </script>
 
 <span class="mark">

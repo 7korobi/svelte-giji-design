@@ -12,7 +12,7 @@ export type Line = {
 	label: string;
 };
 
-export type Icon = {
+export type Portrate = {
 	v: string;
 	label: string;
 	roll: number;

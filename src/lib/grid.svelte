@@ -1,15 +1,13 @@
 <script lang="ts">
 	import GridTd from './grid-td.svelte';
-	import type { TYPE } from '$lib';
-	import { Erase } from '$lib/icon';
-	import { Btn } from '$lib';
+	import { Icon } from '$lib';
 
 	export let value: string[] = [];
 	export let x: { id: string; count: number }[] = [];
 	export let y: { id: string; count: number }[] = [];
 	export let data: { [key: string]: { count: number } } = {};
 	export let find = (xid: string, yid: string) => `${xid}${yid}`;
-	let focus_at = { x: undefined, y: undefined };
+	let focus_at: { x?: string; y?: string } = {};
 
 	function xall(yid: string) {
 		const ids = [];
@@ -37,7 +35,7 @@
 		<tbody>
 			<tr>
 				<GridTd bind:focus_at bind:value type="set" as={[]}>
-					<Erase />
+					<Icon.Erase />
 				</GridTd>
 				{#each x as xo, xi (xo.id)}
 					<GridTd bind:focus_at bind:value type="toggle" as={yall(xo.id)} x={xo.id}>

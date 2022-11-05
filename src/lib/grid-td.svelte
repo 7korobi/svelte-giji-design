@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { chkActive, tap } from '$lib';
 	import { Operations } from 'svelte-pointer-tracker';
+	import type { TYPE } from './button';
 
 	const tracker = new Operations({
 		start() {
@@ -15,14 +16,14 @@
 		}
 	});
 
-	export let focus_at;
-	export let x;
-	export let y;
+	export let focus_at: { x?: string; y?: string } = {};
+	export let x: string;
+	export let y: string;
 	export let press = false;
 	export let disabled = false;
-	export let type = 'toggle';
-	export let as;
-	export let value;
+	export let type: TYPE = 'toggle';
+	export let as: string[];
+	export let value: string[];
 
 	function doClick() {
 		if (disabled) return;
@@ -33,7 +34,7 @@
 		focus_at = { x, y };
 	}
 
-	function focusClass(xid: string, yid: string, { x, y }: { x: string; y: string }) {
+	function focusClass(xid: string, yid: string, { x, y }: typeof focus_at, ..._args: any[]) {
 		const css = [press ? 'press' : as.length ? (chkActive(type, as, value) ? 'active' : '') : ''];
 		if (xid === x || yid === y) css.push('near');
 		if (xid === x && yid === y) css.push('focus');
@@ -44,7 +45,7 @@
 
 <svelte:element
 	this={x && y ? 'td' : 'th'}
-	class={focusClass(x, y, focus_at, [press, type, as, value])}
+	class={focusClass(x, y, focus_at, press, type, as, value)}
 	use:tracker.listener
 	on:mouseenter={focusOn}
 >

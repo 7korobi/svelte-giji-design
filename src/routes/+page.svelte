@@ -1,16 +1,30 @@
 <script lang="ts">
-	import * as Icon from '$lib/icon';
+	import { IconIn, type Icon } from '$lib';
 	import { Badge, Grid, Dialog, LongPress, SearchText } from '$lib';
-
-	const icon_names = Object.keys(Icon) as (keyof typeof Icon)[];
+	import ProgressCircle from '$lib/progress-circle.svelte';
 
 	let hello = '';
 	let search = '';
 	let search_reg: RegExp;
-	let grid_ids = [];
+	let grid_ids = [] as string[];
+
+	let time = 0;
+	setInterval(() => {
+		time++;
+	}, 50);
+	$: circleDisabled = time % 100 < 80
+
+	const all_icons: [keyof typeof IconIn, keyof typeof Icon, typeof Icon][] = [];
+	for (const groupId in IconIn) {
+		const group = IconIn[groupId];
+		for (const iconId in group) {
+			const icon = group[iconId];
+			all_icons.push([groupId, iconId, icon]);
+		}
+	}
 </script>
 
-<h1>Welcome to your library project<Badge value="2" prefix="x" /></h1>
+<h1>Welcome to your library project<Badge value={2} prefix="x" /></h1>
 <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
@@ -24,6 +38,14 @@
 	>Hello!</LongPress
 >
 hello {hello}
+
+<button style="position:relative; z-index: -1; padding: 5em;" class:active={!circleDisabled} disabled={circleDisabled}>
+	<ProgressCircle min={0} max={100} value={time % 100} />
+	Create your package<br />
+	using @sveltejs/package<br />
+	and preview/showcase <br />
+	your work with SvelteKit<br />
+</button>
 
 <h1>Hello World!</h1>
 <h2>Hello World!</h2>
@@ -69,15 +91,15 @@ hello {hello}
 
 <hr />
 <p class="light">
-	{#each icon_names as name}
-		/ {name} <svelte:component this={Icon[name]} />
+	{#each all_icons as [groupId, iconId, Icon], idx (iconId)}
+		/ {iconId} <Icon />
 	{/each}
 </p>
 
 <hr />
 <p class="dark">
-	{#each icon_names as name}
-		/ {name} <svelte:component this={Icon[name]} />
+	{#each all_icons as [groupId, iconId, Icon], idx (iconId)}
+		/ {iconId} <Icon />
 	{/each}
 </p>
 
