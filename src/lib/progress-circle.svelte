@@ -1,7 +1,5 @@
 <script lang="ts">
-	const inRange = (min, value, max) => min < value ? value < max ? value : max : min;
-	const isRange = (min, value, max) => min < value ? value < max ? value : null : null;
-
+	import { inRange } from "svelte-petit-utils"
 	export let width = 5;
 	export let min = 0;
 	export let max = 100;
