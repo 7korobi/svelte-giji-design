@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { inRange } from "svelte-petit-utils"
+	import { inRange } from 'svelte-petit-utils';
 	export let width = 5;
 	export let min = 0;
 	export let max = 100;
 	export let value = 50;
-	$: boxOffset = -0.5 * width
-	$: boxSize = 32 + 1 * width
+	$: boxOffset = -0.5 * width;
+	$: boxSize = 32 + 1 * width;
 	$: at = inRange(min, value, max);
 	$: dash = (at * 100) / (max - min);
 </script>

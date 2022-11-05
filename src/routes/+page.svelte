@@ -12,7 +12,7 @@
 	setInterval(() => {
 		time++;
 	}, 50);
-	$: circleDisabled = time % 100 < 80
+	$: circleDisabled = time % 100 < 80;
 
 	const all_icons: [keyof typeof IconIn, keyof typeof Icon, typeof Icon][] = [];
 	for (const groupId in IconIn) {
@@ -39,7 +39,11 @@
 >
 hello {hello}
 
-<button style="position:relative; z-index: -1; padding: 5em;" class:active={!circleDisabled} disabled={circleDisabled}>
+<button
+	style="position:relative; z-index: -1; padding: 5em;"
+	class:active={!circleDisabled}
+	disabled={circleDisabled}
+>
 	<ProgressCircle min={0} max={100} value={time % 100} />
 	Create your package<br />
 	using @sveltejs/package<br />
