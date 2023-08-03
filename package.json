@@ -45,7 +45,7 @@
 		"svelte-petit-utils": "^0.3.5",
 		"svelte-pointer-tracker": "^0.2.6",
 		"tslib": "^2.4.1",
-		"ua-parser-js": "^1.0.32"
+		"ua-parser-js": "^1.0.33"
 	},
 	"svelte": "./index.js"
 }
